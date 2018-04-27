@@ -17,15 +17,20 @@ public class KafkaSender {
 	@Value("${topic}")
 	String kafkaTopic = "myTopic";
 	
+	@Autowired
+	TwitterStreamProducer twitterStreamProducer;
+	
 	public void send(String key, String message) throws InterruptedException, ExecutionException {
 	    
 		//Simple Send
 		//kafkaTemplate.send(kafkaTopic,key, message);
+		twitterStreamProducer.getTwitterMessage(kafkaTemplate);
+		
 		
 		//Synchronous Send
-	    SendResult<String, String> recordMetaData = kafkaTemplate.send(kafkaTopic,key, message).get();
-	    System.out.println("Received response back from broker-- partition :" 
-	    + recordMetaData.getRecordMetadata().partition() + "-- offser no :"+ recordMetaData.getRecordMetadata().offset());
+	    //SendResult<String, String> recordMetaData = kafkaTemplate.send(kafkaTopic,key, message).get();
+//	    System.out.println("Received response back from broker-- partition :" 
+//	    + recordMetaData.getRecordMetadata().partition() + "-- offser no :"+ recordMetaData.getRecordMetadata().offset());
 	    
 	    //Async Send
 	    //kafkaTemplate.send(kafkaTopic,key, message);
