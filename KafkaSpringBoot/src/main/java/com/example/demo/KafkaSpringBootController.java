@@ -17,7 +17,7 @@ public class KafkaSpringBootController {
 	public String producer(@RequestParam("key") String key,@RequestParam("message") String message) throws InterruptedException, ExecutionException {
 		kafkaSender.send(key,message);
 
-		return "Message sent to the Kafka Topic dist_topic2 Successfully";
+		return "Message sent to the Kafka Topic Successfully";
 	}
 	
 }
