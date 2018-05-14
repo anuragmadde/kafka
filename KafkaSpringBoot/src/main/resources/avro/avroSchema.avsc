@@ -1,0 +1,11 @@
+{
+     "type": "record",
+     "namespace": "com.example.demo",
+     "name": "SampleSchema",
+     "fields": [
+       { "name": "id", "type": "int" },
+       { "name": "name", "type": "string" },
+       { "name": "email", "type": "string" },
+       { "name": "postcode", "type": "int" }
+     ]
+}

@@ -1,0 +1,12 @@
+{
+    "type": "record",
+    "name": "Key",
+    "namespace": "postgrescdc.anurag.sample",
+    "fields": [
+        {
+            "name": "id",
+            "type": "int"
+        }
+    ],
+    "connect.name": "postgrescdc.anurag.sample.Key"
+}

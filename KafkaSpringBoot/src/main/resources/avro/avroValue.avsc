@@ -1,0 +1,44 @@
+{
+    "type": "record",
+    "name": "Value",
+    "namespace": "postgrescdc.anurag.sample",
+    "fields": [
+        {
+            "name": "id",
+            "type": "int"
+        },
+        {
+            "name": "name",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "email",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "postcode",
+            "type": [
+                "null",
+                "int"
+            ],
+            "default": null
+        },
+        {
+            "name": "latitiude",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        }
+    ],
+    "connect.name": "postgrescdc.anurag.sample.Value"
+}

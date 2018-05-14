@@ -1,0 +1,16 @@
+{
+    "type": "record",
+    "name": "Key",
+    "namespace": "postgrescdc.cdc.intrusion_details",
+    "fields": [
+        {
+            "name": "reference_id",
+            "type": {
+                "type": "string",
+                "connect.version": 1,
+                "connect.name": "io.debezium.data.Uuid"
+            }
+        }
+    ],
+    "connect.name": "postgrescdc.cdc.intrusion_details.Key"
+}

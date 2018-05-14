@@ -1,0 +1,112 @@
+{
+    "type": "record",
+    "name": "Value",
+    "namespace": "postgrescdc.cdc.intrusion_details",
+    "fields": [
+        {
+            "name": "reference_id",
+            "type": {
+                "type": "string",
+                "connect.version": 1,
+                "connect.name": "io.debezium.data.Uuid"
+            }
+        },
+        {
+            "name": "name",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "address_line",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "suburb",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "state",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "postcode",
+            "type": [
+                "null",
+                "int"
+            ],
+            "default": null
+        },
+        {
+            "name": "provider",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "type",
+            "type": [
+                "null",
+                "boolean"
+            ],
+            "default": null
+        },
+        {
+            "name": "video_url",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "image_url",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "location_latitude",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "location_longitude",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "status",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        }
+    ],
+    "connect.name": "postgrescdc.cdc.intrusion_details.Value"
+}
