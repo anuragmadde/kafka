@@ -1,0 +1,119 @@
+{
+    "type": "record",
+    "name": "Value",
+    "namespace": "mysql.cdc.intrusion_details",
+    "fields": [
+        {
+            "name": "reference_id",
+            "type": "string"
+        },
+        {
+            "name": "name",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "address_line",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "suburb",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "state",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "postcode",
+            "type": [
+                "null",
+                "int"
+            ],
+            "default": null
+        },
+        {
+            "name": "provider",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "type",
+            "type": [
+                "null",
+                {
+                    "type": "int",
+                    "connect.type": "int16"
+                }
+            ],
+            "default": null
+        },
+        {
+            "name": "video_url",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "image_url",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "location_latitude",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "location_longitude",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "status",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "alert_time",
+            "type": {
+                "type": "string",
+                "connect.version": 1,
+                "connect.name": "io.debezium.time.ZonedTimestamp"
+            }
+        }
+    ],
+    "connect.name": "mysql.cdc.intrusion_details.Value"
+}

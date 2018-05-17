@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package postgrescdc.cdc.intrusion_details;
+package postgres.cdc.intrusion_details;
 
 import org.apache.avro.specific.SpecificData;
 import org.apache.avro.message.BinaryMessageEncoder;
@@ -13,8 +13,8 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Key extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 1378020026462377111L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Key\",\"namespace\":\"postgrescdc.cdc.intrusion_details\",\"fields\":[{\"name\":\"reference_id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\",\"connect.version\":1,\"connect.name\":\"io.debezium.data.Uuid\"}}],\"connect.name\":\"postgrescdc.cdc.intrusion_details.Key\"}");
+  private static final long serialVersionUID = -8635784986309317847L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Key\",\"namespace\":\"postgres.cdc.intrusion_details\",\"fields\":[{\"name\":\"reference_id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\",\"connect.version\":1,\"connect.name\":\"io.debezium.data.Uuid\"}}],\"connect.name\":\"postgres.cdc.intrusion_details.Key\"}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -99,8 +99,8 @@ public class Key extends org.apache.avro.specific.SpecificRecordBase implements 
    * Creates a new Key RecordBuilder.
    * @return A new Key RecordBuilder
    */
-  public static postgrescdc.cdc.intrusion_details.Key.Builder newBuilder() {
-    return new postgrescdc.cdc.intrusion_details.Key.Builder();
+  public static postgres.cdc.intrusion_details.Key.Builder newBuilder() {
+    return new postgres.cdc.intrusion_details.Key.Builder();
   }
 
   /**
@@ -108,8 +108,8 @@ public class Key extends org.apache.avro.specific.SpecificRecordBase implements 
    * @param other The existing builder to copy.
    * @return A new Key RecordBuilder
    */
-  public static postgrescdc.cdc.intrusion_details.Key.Builder newBuilder(postgrescdc.cdc.intrusion_details.Key.Builder other) {
-    return new postgrescdc.cdc.intrusion_details.Key.Builder(other);
+  public static postgres.cdc.intrusion_details.Key.Builder newBuilder(postgres.cdc.intrusion_details.Key.Builder other) {
+    return new postgres.cdc.intrusion_details.Key.Builder(other);
   }
 
   /**
@@ -117,8 +117,8 @@ public class Key extends org.apache.avro.specific.SpecificRecordBase implements 
    * @param other The existing instance to copy.
    * @return A new Key RecordBuilder
    */
-  public static postgrescdc.cdc.intrusion_details.Key.Builder newBuilder(postgrescdc.cdc.intrusion_details.Key other) {
-    return new postgrescdc.cdc.intrusion_details.Key.Builder(other);
+  public static postgres.cdc.intrusion_details.Key.Builder newBuilder(postgres.cdc.intrusion_details.Key other) {
+    return new postgres.cdc.intrusion_details.Key.Builder(other);
   }
 
   /**
@@ -138,7 +138,7 @@ public class Key extends org.apache.avro.specific.SpecificRecordBase implements 
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(postgrescdc.cdc.intrusion_details.Key.Builder other) {
+    private Builder(postgres.cdc.intrusion_details.Key.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.reference_id)) {
         this.reference_id = data().deepCopy(fields()[0].schema(), other.reference_id);
@@ -150,7 +150,7 @@ public class Key extends org.apache.avro.specific.SpecificRecordBase implements 
      * Creates a Builder by copying an existing Key instance
      * @param other The existing instance to copy.
      */
-    private Builder(postgrescdc.cdc.intrusion_details.Key other) {
+    private Builder(postgres.cdc.intrusion_details.Key other) {
             super(SCHEMA$);
       if (isValidValue(fields()[0], other.reference_id)) {
         this.reference_id = data().deepCopy(fields()[0].schema(), other.reference_id);
@@ -171,7 +171,7 @@ public class Key extends org.apache.avro.specific.SpecificRecordBase implements 
       * @param value The value of 'reference_id'.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Key.Builder setReferenceId(java.lang.String value) {
+    public postgres.cdc.intrusion_details.Key.Builder setReferenceId(java.lang.String value) {
       validate(fields()[0], value);
       this.reference_id = value;
       fieldSetFlags()[0] = true;
@@ -191,7 +191,7 @@ public class Key extends org.apache.avro.specific.SpecificRecordBase implements 
       * Clears the value of the 'reference_id' field.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Key.Builder clearReferenceId() {
+    public postgres.cdc.intrusion_details.Key.Builder clearReferenceId() {
       reference_id = null;
       fieldSetFlags()[0] = false;
       return this;

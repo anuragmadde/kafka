@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package postgrescdc.cdc.intrusion_details;
+package mysql.cdc.intrusion_details;
 
 import org.apache.avro.specific.SpecificData;
 import org.apache.avro.message.BinaryMessageEncoder;
@@ -13,8 +13,8 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Value extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -4013583798534574284L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Value\",\"namespace\":\"postgrescdc.cdc.intrusion_details\",\"fields\":[{\"name\":\"reference_id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\",\"connect.version\":1,\"connect.name\":\"io.debezium.data.Uuid\"}},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"address_line\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"suburb\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"state\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"postcode\",\"type\":[\"null\",\"int\"],\"default\":null},{\"name\":\"provider\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"type\",\"type\":[\"null\",\"boolean\"],\"default\":null},{\"name\":\"video_url\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"image_url\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"location_latitude\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"location_longitude\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"status\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null}],\"connect.name\":\"postgrescdc.cdc.intrusion_details.Value\"}");
+  private static final long serialVersionUID = 1465827746019643002L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Value\",\"namespace\":\"mysql.cdc.intrusion_details\",\"fields\":[{\"name\":\"reference_id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"address_line\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"suburb\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"state\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"postcode\",\"type\":[\"null\",\"int\"],\"default\":null},{\"name\":\"provider\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"type\",\"type\":[\"null\",{\"type\":\"int\",\"connect.type\":\"int16\"}],\"default\":null},{\"name\":\"video_url\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"image_url\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"location_latitude\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"location_longitude\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"status\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"alert_time\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\",\"connect.version\":1,\"connect.name\":\"io.debezium.time.ZonedTimestamp\"}}],\"connect.name\":\"mysql.cdc.intrusion_details.Value\"}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -58,12 +58,13 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
    private java.lang.String state;
    private java.lang.Integer postcode;
    private java.lang.String provider;
-   private java.lang.Boolean type;
+   private java.lang.Integer type;
    private java.lang.String video_url;
    private java.lang.String image_url;
    private java.lang.String location_latitude;
    private java.lang.String location_longitude;
    private java.lang.String status;
+   private java.lang.String alert_time;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -87,8 +88,9 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
    * @param location_latitude The new value for location_latitude
    * @param location_longitude The new value for location_longitude
    * @param status The new value for status
+   * @param alert_time The new value for alert_time
    */
-  public Value(java.lang.String reference_id, java.lang.String name, java.lang.String address_line, java.lang.String suburb, java.lang.String state, java.lang.Integer postcode, java.lang.String provider, java.lang.Boolean type, java.lang.String video_url, java.lang.String image_url, java.lang.String location_latitude, java.lang.String location_longitude, java.lang.String status) {
+  public Value(java.lang.String reference_id, java.lang.String name, java.lang.String address_line, java.lang.String suburb, java.lang.String state, java.lang.Integer postcode, java.lang.String provider, java.lang.Integer type, java.lang.String video_url, java.lang.String image_url, java.lang.String location_latitude, java.lang.String location_longitude, java.lang.String status, java.lang.String alert_time) {
     this.reference_id = reference_id;
     this.name = name;
     this.address_line = address_line;
@@ -102,6 +104,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
     this.location_latitude = location_latitude;
     this.location_longitude = location_longitude;
     this.status = status;
+    this.alert_time = alert_time;
   }
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
@@ -121,6 +124,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
     case 10: return location_latitude;
     case 11: return location_longitude;
     case 12: return status;
+    case 13: return alert_time;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -136,12 +140,13 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
     case 4: state = (java.lang.String)value$; break;
     case 5: postcode = (java.lang.Integer)value$; break;
     case 6: provider = (java.lang.String)value$; break;
-    case 7: type = (java.lang.Boolean)value$; break;
+    case 7: type = (java.lang.Integer)value$; break;
     case 8: video_url = (java.lang.String)value$; break;
     case 9: image_url = (java.lang.String)value$; break;
     case 10: location_latitude = (java.lang.String)value$; break;
     case 11: location_longitude = (java.lang.String)value$; break;
     case 12: status = (java.lang.String)value$; break;
+    case 13: alert_time = (java.lang.String)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -213,7 +218,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
    * Gets the value of the 'type' field.
    * @return The value of the 'type' field.
    */
-  public java.lang.Boolean getType() {
+  public java.lang.Integer getType() {
     return type;
   }
 
@@ -264,11 +269,20 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
 
 
   /**
+   * Gets the value of the 'alert_time' field.
+   * @return The value of the 'alert_time' field.
+   */
+  public java.lang.String getAlertTime() {
+    return alert_time;
+  }
+
+
+  /**
    * Creates a new Value RecordBuilder.
    * @return A new Value RecordBuilder
    */
-  public static postgrescdc.cdc.intrusion_details.Value.Builder newBuilder() {
-    return new postgrescdc.cdc.intrusion_details.Value.Builder();
+  public static mysql.cdc.intrusion_details.Value.Builder newBuilder() {
+    return new mysql.cdc.intrusion_details.Value.Builder();
   }
 
   /**
@@ -276,8 +290,8 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
    * @param other The existing builder to copy.
    * @return A new Value RecordBuilder
    */
-  public static postgrescdc.cdc.intrusion_details.Value.Builder newBuilder(postgrescdc.cdc.intrusion_details.Value.Builder other) {
-    return new postgrescdc.cdc.intrusion_details.Value.Builder(other);
+  public static mysql.cdc.intrusion_details.Value.Builder newBuilder(mysql.cdc.intrusion_details.Value.Builder other) {
+    return new mysql.cdc.intrusion_details.Value.Builder(other);
   }
 
   /**
@@ -285,8 +299,8 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
    * @param other The existing instance to copy.
    * @return A new Value RecordBuilder
    */
-  public static postgrescdc.cdc.intrusion_details.Value.Builder newBuilder(postgrescdc.cdc.intrusion_details.Value other) {
-    return new postgrescdc.cdc.intrusion_details.Value.Builder(other);
+  public static mysql.cdc.intrusion_details.Value.Builder newBuilder(mysql.cdc.intrusion_details.Value other) {
+    return new mysql.cdc.intrusion_details.Value.Builder(other);
   }
 
   /**
@@ -302,12 +316,13 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
     private java.lang.String state;
     private java.lang.Integer postcode;
     private java.lang.String provider;
-    private java.lang.Boolean type;
+    private java.lang.Integer type;
     private java.lang.String video_url;
     private java.lang.String image_url;
     private java.lang.String location_latitude;
     private java.lang.String location_longitude;
     private java.lang.String status;
+    private java.lang.String alert_time;
 
     /** Creates a new Builder */
     private Builder() {
@@ -318,7 +333,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(postgrescdc.cdc.intrusion_details.Value.Builder other) {
+    private Builder(mysql.cdc.intrusion_details.Value.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.reference_id)) {
         this.reference_id = data().deepCopy(fields()[0].schema(), other.reference_id);
@@ -372,13 +387,17 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
         this.status = data().deepCopy(fields()[12].schema(), other.status);
         fieldSetFlags()[12] = true;
       }
+      if (isValidValue(fields()[13], other.alert_time)) {
+        this.alert_time = data().deepCopy(fields()[13].schema(), other.alert_time);
+        fieldSetFlags()[13] = true;
+      }
     }
 
     /**
      * Creates a Builder by copying an existing Value instance
      * @param other The existing instance to copy.
      */
-    private Builder(postgrescdc.cdc.intrusion_details.Value other) {
+    private Builder(mysql.cdc.intrusion_details.Value other) {
             super(SCHEMA$);
       if (isValidValue(fields()[0], other.reference_id)) {
         this.reference_id = data().deepCopy(fields()[0].schema(), other.reference_id);
@@ -432,6 +451,10 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
         this.status = data().deepCopy(fields()[12].schema(), other.status);
         fieldSetFlags()[12] = true;
       }
+      if (isValidValue(fields()[13], other.alert_time)) {
+        this.alert_time = data().deepCopy(fields()[13].schema(), other.alert_time);
+        fieldSetFlags()[13] = true;
+      }
     }
 
     /**
@@ -447,7 +470,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'reference_id'.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder setReferenceId(java.lang.String value) {
+    public mysql.cdc.intrusion_details.Value.Builder setReferenceId(java.lang.String value) {
       validate(fields()[0], value);
       this.reference_id = value;
       fieldSetFlags()[0] = true;
@@ -467,7 +490,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * Clears the value of the 'reference_id' field.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder clearReferenceId() {
+    public mysql.cdc.intrusion_details.Value.Builder clearReferenceId() {
       reference_id = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -486,7 +509,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'name'.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder setName(java.lang.String value) {
+    public mysql.cdc.intrusion_details.Value.Builder setName(java.lang.String value) {
       validate(fields()[1], value);
       this.name = value;
       fieldSetFlags()[1] = true;
@@ -506,7 +529,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * Clears the value of the 'name' field.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder clearName() {
+    public mysql.cdc.intrusion_details.Value.Builder clearName() {
       name = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -525,7 +548,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'address_line'.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder setAddressLine(java.lang.String value) {
+    public mysql.cdc.intrusion_details.Value.Builder setAddressLine(java.lang.String value) {
       validate(fields()[2], value);
       this.address_line = value;
       fieldSetFlags()[2] = true;
@@ -545,7 +568,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * Clears the value of the 'address_line' field.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder clearAddressLine() {
+    public mysql.cdc.intrusion_details.Value.Builder clearAddressLine() {
       address_line = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -564,7 +587,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'suburb'.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder setSuburb(java.lang.String value) {
+    public mysql.cdc.intrusion_details.Value.Builder setSuburb(java.lang.String value) {
       validate(fields()[3], value);
       this.suburb = value;
       fieldSetFlags()[3] = true;
@@ -584,7 +607,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * Clears the value of the 'suburb' field.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder clearSuburb() {
+    public mysql.cdc.intrusion_details.Value.Builder clearSuburb() {
       suburb = null;
       fieldSetFlags()[3] = false;
       return this;
@@ -603,7 +626,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'state'.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder setState(java.lang.String value) {
+    public mysql.cdc.intrusion_details.Value.Builder setState(java.lang.String value) {
       validate(fields()[4], value);
       this.state = value;
       fieldSetFlags()[4] = true;
@@ -623,7 +646,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * Clears the value of the 'state' field.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder clearState() {
+    public mysql.cdc.intrusion_details.Value.Builder clearState() {
       state = null;
       fieldSetFlags()[4] = false;
       return this;
@@ -642,7 +665,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'postcode'.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder setPostcode(java.lang.Integer value) {
+    public mysql.cdc.intrusion_details.Value.Builder setPostcode(java.lang.Integer value) {
       validate(fields()[5], value);
       this.postcode = value;
       fieldSetFlags()[5] = true;
@@ -662,7 +685,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * Clears the value of the 'postcode' field.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder clearPostcode() {
+    public mysql.cdc.intrusion_details.Value.Builder clearPostcode() {
       postcode = null;
       fieldSetFlags()[5] = false;
       return this;
@@ -681,7 +704,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'provider'.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder setProvider(java.lang.String value) {
+    public mysql.cdc.intrusion_details.Value.Builder setProvider(java.lang.String value) {
       validate(fields()[6], value);
       this.provider = value;
       fieldSetFlags()[6] = true;
@@ -701,7 +724,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * Clears the value of the 'provider' field.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder clearProvider() {
+    public mysql.cdc.intrusion_details.Value.Builder clearProvider() {
       provider = null;
       fieldSetFlags()[6] = false;
       return this;
@@ -711,7 +734,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * Gets the value of the 'type' field.
       * @return The value.
       */
-    public java.lang.Boolean getType() {
+    public java.lang.Integer getType() {
       return type;
     }
 
@@ -720,7 +743,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'type'.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder setType(java.lang.Boolean value) {
+    public mysql.cdc.intrusion_details.Value.Builder setType(java.lang.Integer value) {
       validate(fields()[7], value);
       this.type = value;
       fieldSetFlags()[7] = true;
@@ -740,7 +763,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * Clears the value of the 'type' field.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder clearType() {
+    public mysql.cdc.intrusion_details.Value.Builder clearType() {
       type = null;
       fieldSetFlags()[7] = false;
       return this;
@@ -759,7 +782,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'video_url'.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder setVideoUrl(java.lang.String value) {
+    public mysql.cdc.intrusion_details.Value.Builder setVideoUrl(java.lang.String value) {
       validate(fields()[8], value);
       this.video_url = value;
       fieldSetFlags()[8] = true;
@@ -779,7 +802,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * Clears the value of the 'video_url' field.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder clearVideoUrl() {
+    public mysql.cdc.intrusion_details.Value.Builder clearVideoUrl() {
       video_url = null;
       fieldSetFlags()[8] = false;
       return this;
@@ -798,7 +821,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'image_url'.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder setImageUrl(java.lang.String value) {
+    public mysql.cdc.intrusion_details.Value.Builder setImageUrl(java.lang.String value) {
       validate(fields()[9], value);
       this.image_url = value;
       fieldSetFlags()[9] = true;
@@ -818,7 +841,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * Clears the value of the 'image_url' field.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder clearImageUrl() {
+    public mysql.cdc.intrusion_details.Value.Builder clearImageUrl() {
       image_url = null;
       fieldSetFlags()[9] = false;
       return this;
@@ -837,7 +860,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'location_latitude'.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder setLocationLatitude(java.lang.String value) {
+    public mysql.cdc.intrusion_details.Value.Builder setLocationLatitude(java.lang.String value) {
       validate(fields()[10], value);
       this.location_latitude = value;
       fieldSetFlags()[10] = true;
@@ -857,7 +880,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * Clears the value of the 'location_latitude' field.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder clearLocationLatitude() {
+    public mysql.cdc.intrusion_details.Value.Builder clearLocationLatitude() {
       location_latitude = null;
       fieldSetFlags()[10] = false;
       return this;
@@ -876,7 +899,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'location_longitude'.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder setLocationLongitude(java.lang.String value) {
+    public mysql.cdc.intrusion_details.Value.Builder setLocationLongitude(java.lang.String value) {
       validate(fields()[11], value);
       this.location_longitude = value;
       fieldSetFlags()[11] = true;
@@ -896,7 +919,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * Clears the value of the 'location_longitude' field.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder clearLocationLongitude() {
+    public mysql.cdc.intrusion_details.Value.Builder clearLocationLongitude() {
       location_longitude = null;
       fieldSetFlags()[11] = false;
       return this;
@@ -915,7 +938,7 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'status'.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder setStatus(java.lang.String value) {
+    public mysql.cdc.intrusion_details.Value.Builder setStatus(java.lang.String value) {
       validate(fields()[12], value);
       this.status = value;
       fieldSetFlags()[12] = true;
@@ -935,9 +958,48 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       * Clears the value of the 'status' field.
       * @return This builder.
       */
-    public postgrescdc.cdc.intrusion_details.Value.Builder clearStatus() {
+    public mysql.cdc.intrusion_details.Value.Builder clearStatus() {
       status = null;
       fieldSetFlags()[12] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'alert_time' field.
+      * @return The value.
+      */
+    public java.lang.String getAlertTime() {
+      return alert_time;
+    }
+
+    /**
+      * Sets the value of the 'alert_time' field.
+      * @param value The value of 'alert_time'.
+      * @return This builder.
+      */
+    public mysql.cdc.intrusion_details.Value.Builder setAlertTime(java.lang.String value) {
+      validate(fields()[13], value);
+      this.alert_time = value;
+      fieldSetFlags()[13] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'alert_time' field has been set.
+      * @return True if the 'alert_time' field has been set, false otherwise.
+      */
+    public boolean hasAlertTime() {
+      return fieldSetFlags()[13];
+    }
+
+
+    /**
+      * Clears the value of the 'alert_time' field.
+      * @return This builder.
+      */
+    public mysql.cdc.intrusion_details.Value.Builder clearAlertTime() {
+      alert_time = null;
+      fieldSetFlags()[13] = false;
       return this;
     }
 
@@ -953,12 +1015,13 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
         record.state = fieldSetFlags()[4] ? this.state : (java.lang.String) defaultValue(fields()[4]);
         record.postcode = fieldSetFlags()[5] ? this.postcode : (java.lang.Integer) defaultValue(fields()[5]);
         record.provider = fieldSetFlags()[6] ? this.provider : (java.lang.String) defaultValue(fields()[6]);
-        record.type = fieldSetFlags()[7] ? this.type : (java.lang.Boolean) defaultValue(fields()[7]);
+        record.type = fieldSetFlags()[7] ? this.type : (java.lang.Integer) defaultValue(fields()[7]);
         record.video_url = fieldSetFlags()[8] ? this.video_url : (java.lang.String) defaultValue(fields()[8]);
         record.image_url = fieldSetFlags()[9] ? this.image_url : (java.lang.String) defaultValue(fields()[9]);
         record.location_latitude = fieldSetFlags()[10] ? this.location_latitude : (java.lang.String) defaultValue(fields()[10]);
         record.location_longitude = fieldSetFlags()[11] ? this.location_longitude : (java.lang.String) defaultValue(fields()[11]);
         record.status = fieldSetFlags()[12] ? this.status : (java.lang.String) defaultValue(fields()[12]);
+        record.alert_time = fieldSetFlags()[13] ? this.alert_time : (java.lang.String) defaultValue(fields()[13]);
         return record;
       } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

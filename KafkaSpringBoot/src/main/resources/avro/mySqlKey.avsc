@@ -1,0 +1,12 @@
+{
+    "type": "record",
+    "name": "Key",
+    "namespace": "mysql.cdc.intrusion_details",
+    "fields": [
+        {
+            "name": "reference_id",
+            "type": "string"
+        }
+    ],
+    "connect.name": "mysql.cdc.intrusion_details.Key"
+}

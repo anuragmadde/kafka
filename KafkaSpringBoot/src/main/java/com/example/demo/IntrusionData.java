@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 import org.springframework.stereotype.Component;
 
@@ -9,7 +9,7 @@ public class IntrusionData {
 	
 	private Address address;
 
-	private String reference_id;
+	private String uuid;
 	
 	private Location location;
 	
@@ -23,7 +23,7 @@ public class IntrusionData {
 	
 	private String status;
 	
-	private Timestamp alerted_time;
+	private Timestamp alerted;
 
 	public Location getLocation() {
 		return location;
@@ -41,12 +41,12 @@ public class IntrusionData {
 		this.address = address;
 	}
 
-	public String getReference_id() {
-		return reference_id;
+	public String getUuid() {
+		return uuid;
 	}
 
-	public void setReference_id(String reference_id) {
-		this.reference_id = reference_id;
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 
 	public String getProvider() {
@@ -89,12 +89,12 @@ public class IntrusionData {
 		this.status = status;
 	}
 
-	public Timestamp getAlerted_time() {
-		return alerted_time;
+	public Timestamp getAlerted() {
+		return alerted;
 	}
 
-	public void setAlerted_time(Timestamp alerted_time) {
-		this.alerted_time = alerted_time;
+	public void setAlerted(Timestamp alerted) {
+		this.alerted = alerted;
 	}
 	
 }

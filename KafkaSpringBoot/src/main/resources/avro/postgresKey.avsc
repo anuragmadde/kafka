@@ -1,7 +1,7 @@
 {
     "type": "record",
     "name": "Key",
-    "namespace": "postgrescdc.cdc.intrusion_details",
+    "namespace": "postgres.cdc.intrusion_details",
     "fields": [
         {
             "name": "reference_id",
@@ -12,5 +12,5 @@
             }
         }
     ],
-    "connect.name": "postgrescdc.cdc.intrusion_details.Key"
+    "connect.name": "postgres.cdc.intrusion_details.Key"
 }

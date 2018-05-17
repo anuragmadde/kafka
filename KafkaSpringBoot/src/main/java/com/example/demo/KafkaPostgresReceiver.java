@@ -1,5 +1,11 @@
 package com.example.demo;
 
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.OffsetDateTime;
+import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -10,12 +16,12 @@ import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 
-import postgrescdc.cdc.intrusion_details.Key;
-import postgrescdc.cdc.intrusion_details.Value;
+import postgres.cdc.intrusion_details.Key;
+import postgres.cdc.intrusion_details.Value;
 
 
 @Service
-public class KafkaReceiver {
+public class KafkaPostgresReceiver {
 	
 	@Autowired
 	public KafkaSender kafkaSender;
@@ -28,15 +34,16 @@ public class KafkaReceiver {
 
 	@Autowired
 	public Address address;
+	
 
-	@KafkaListener(topics = "${topic}")
-    public void listen(@Payload ConsumerRecord<Key,Value> message) throws InterruptedException, ExecutionException  {
-        System.out.println("Message paylaod : " + message.toString());
+	@KafkaListener(topics = "${postgres_topic}")
+    public void listenPostgresTopic(@Payload ConsumerRecord<Key,Value> message) throws InterruptedException, ExecutionException, ParseException  {
+        //System.out.println("Message paylaod : " + message.toString());
         //System.out.println("Value - "+ message.value().toString());
-        System.out.println("key - "+ message.key().getReferenceId());
-        System.out.println("Name - "+ message.value().getName());
+        System.out.println("POSTGRES key - "+ message.key());
+        System.out.println("POSTGRES Value - "+ message.value());
  
-        intrusionData.setReference_id(message.key().getReferenceId());
+        intrusionData.setUuid(message.key().getReferenceId());
         intrusionData.setProvider(message.value().getProvider());
         intrusionData.setVideo_url(message.value().getVideoUrl());
         intrusionData.setImage_url(message.value().getImageUrl());
@@ -56,20 +63,30 @@ public class KafkaReceiver {
         location.setLongitude(message.value().getLocationLongitude());
         
         intrusionData.setLatitude(location);
+
+        /*SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
+        Date parsedDate = dateFormat.parse(message.value().getAlertTime());
+        Timestamp timestamp = new Timestamp(parsedDate.getTime());*/
+        
+        OffsetDateTime odt = OffsetDateTime.parse(message.value().getAlertTime());
+        Instant instant = odt.toInstant();
+        Timestamp timestamp = Timestamp.from(instant);
+        
+        System.out.println("Timestamp - "+ timestamp);
+        
+        
+        intrusionData.setAlerted(timestamp);
         
         Gson gson = new Gson();
         String intrusionJson = gson.toJson(intrusionData);
         
         System.out.println("Intrusion Data - "+ intrusionJson);
         
-        //Json json = new Json();
-        
-        
         
         kafkaSender.send("mongoIntrusionTopic", message.key().toString() ,intrusionJson);
         
-        System.out.println("Data sent to Topic");
+        System.out.println("Data sent to mongoIntrusionTopic from Postgres Source");
         
     }
-	
+		
 }

@@ -1,7 +1,7 @@
 {
     "type": "record",
     "name": "Value",
-    "namespace": "postgrescdc.cdc.intrusion_details",
+    "namespace": "postgres.cdc.intrusion_details",
     "fields": [
         {
             "name": "reference_id",
@@ -106,7 +106,19 @@
                 "string"
             ],
             "default": null
+        },
+        {
+            "name": "alert_time",
+            "type": [
+                "null",
+                {
+                    "type": "string",
+                    "connect.version": 1,
+                    "connect.name": "io.debezium.time.ZonedTimestamp"
+                }
+            ],
+            "default": null
         }
     ],
-    "connect.name": "postgrescdc.cdc.intrusion_details.Value"
+    "connect.name": "postgres.cdc.intrusion_details.Value"
 }

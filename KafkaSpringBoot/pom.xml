@@ -121,8 +121,8 @@
 			</plugin>
 			
 			
-			
-		<!-- <plugin>
+		<!-- 	
+		<plugin>
 				<groupId>org.apache.avro</groupId>
 				<artifactId>avro-maven-plugin</artifactId>
 				<version>${avro.version}</version>
