@@ -2,10 +2,8 @@ package com.example.demo;
 
 import java.sql.Timestamp;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.OffsetDateTime;
-import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -38,8 +36,7 @@ public class KafkaMySqlReceiver {
 		
 	@KafkaListener(topics = "${mysql_topic}")
     public void listenMySqlTopic(@Payload ConsumerRecord<Key,Value> message) throws InterruptedException, ExecutionException, ParseException  {
-        //System.out.println("MYSQ : " + message.toString());
-        //System.out.println("Value - "+ message.value().toString());
+        
         System.out.println("MYSQL key - "+ message.key());
         System.out.println("MYSQL value - "+ message.value());
  
@@ -48,7 +45,8 @@ public class KafkaMySqlReceiver {
         intrusionData.setVideo_url(message.value().getVideoUrl());
         intrusionData.setImage_url(message.value().getImageUrl());
         intrusionData.setStatus(message.value().getStatus());
-        intrusionData.setType(message.value().getType().equals(0) ? false : true);
+        intrusionData.setAlert_type(message.value().getAlertType());
+        intrusionData.setIntrusion_type(message.value().getIntrusionType());
         
         address.setName(message.value().getName());
         address.setPostcode(message.value().getPostcode());
@@ -63,22 +61,12 @@ public class KafkaMySqlReceiver {
         location.setLongitude(message.value().getLocationLongitude());
         
         intrusionData.setLatitude(location);
-        
-       /* SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
-        Date parsedDate = dateFormat.parse(message.value().getAlertTime());
-        Timestamp timestamp = new Timestamp(parsedDate.getTime());
-        */
+      
         OffsetDateTime odt = OffsetDateTime.parse(message.value().getAlertTime());
         Instant instant = odt.toInstant();
         Timestamp timestamp = Timestamp.from(instant);
-        
-        System.out.println("Timestamp - "+ timestamp);
-        
-        
-        
+ 
         intrusionData.setAlerted(timestamp);
-        
-        
         
         Gson gson = new Gson();
         String intrusionJson = gson.toJson(intrusionData);

@@ -56,17 +56,6 @@
             "default": null
         },
         {
-            "name": "type",
-            "type": [
-                "null",
-                {
-                    "type": "int",
-                    "connect.type": "int16"
-                }
-            ],
-            "default": null
-        },
-        {
             "name": "video_url",
             "type": [
                 "null",
@@ -113,6 +102,22 @@
                 "connect.version": 1,
                 "connect.name": "io.debezium.time.ZonedTimestamp"
             }
+        },
+        {
+            "name": "alert_type",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "intrusion_type",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
         }
     ],
     "connect.name": "mysql.cdc.intrusion_details.Value"

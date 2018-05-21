@@ -15,7 +15,9 @@ public class IntrusionData {
 	
 	private String provider;
 	
-	private boolean type;
+	private String alert_type;
+	
+	private String intrusion_type;
 	
 	private String video_url;
 	
@@ -37,6 +39,22 @@ public class IntrusionData {
 		return address;
 	}
 
+	public String getAlert_type() {
+		return alert_type;
+	}
+
+	public void setAlert_type(String alert_type) {
+		this.alert_type = alert_type;
+	}
+
+	public String getIntrusion_type() {
+		return intrusion_type;
+	}
+
+	public void setIntrusion_type(String intrusion_type) {
+		this.intrusion_type = intrusion_type;
+	}
+
 	public void setAddress(Address address) {
 		this.address = address;
 	}
@@ -55,14 +73,6 @@ public class IntrusionData {
 
 	public void setProvider(String provider) {
 		this.provider = provider;
-	}
-
-	public boolean isType() {
-		return type;
-	}
-
-	public void setType(boolean type) {
-		this.type = type;
 	}
 
 	public String getVideo_url() {

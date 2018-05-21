@@ -38,8 +38,7 @@ public class KafkaPostgresReceiver {
 
 	@KafkaListener(topics = "${postgres_topic}")
     public void listenPostgresTopic(@Payload ConsumerRecord<Key,Value> message) throws InterruptedException, ExecutionException, ParseException  {
-        //System.out.println("Message paylaod : " + message.toString());
-        //System.out.println("Value - "+ message.value().toString());
+       
         System.out.println("POSTGRES key - "+ message.key());
         System.out.println("POSTGRES Value - "+ message.value());
  
@@ -48,7 +47,8 @@ public class KafkaPostgresReceiver {
         intrusionData.setVideo_url(message.value().getVideoUrl());
         intrusionData.setImage_url(message.value().getImageUrl());
         intrusionData.setStatus(message.value().getStatus());
-        intrusionData.setType(message.value().getType());
+        intrusionData.setAlert_type(message.value().getAlertType());
+        intrusionData.setIntrusion_type(message.value().getIntrusionType());
         
         address.setName(message.value().getName());
         address.setPostcode(message.value().getPostcode());
@@ -64,16 +64,9 @@ public class KafkaPostgresReceiver {
         
         intrusionData.setLatitude(location);
 
-        /*SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
-        Date parsedDate = dateFormat.parse(message.value().getAlertTime());
-        Timestamp timestamp = new Timestamp(parsedDate.getTime());*/
-        
         OffsetDateTime odt = OffsetDateTime.parse(message.value().getAlertTime());
         Instant instant = odt.toInstant();
         Timestamp timestamp = Timestamp.from(instant);
-        
-        System.out.println("Timestamp - "+ timestamp);
-        
         
         intrusionData.setAlerted(timestamp);
         
@@ -81,8 +74,7 @@ public class KafkaPostgresReceiver {
         String intrusionJson = gson.toJson(intrusionData);
         
         System.out.println("Intrusion Data - "+ intrusionJson);
-        
-        
+              
         kafkaSender.send("mongoIntrusionTopic", message.key().toString() ,intrusionJson);
         
         System.out.println("Data sent to mongoIntrusionTopic from Postgres Source");
