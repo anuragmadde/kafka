@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.hackathon.kafka;
 
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.RecordMetadata;

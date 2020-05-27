@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>KafkaSpringBoot</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Project for Kafka Spring Boot</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -24,10 +24,10 @@
 		<java.version>1.8</java.version>
 		<avro.version>1.8.2</avro.version>
 		<kafka.version>0.11.0.1</kafka.version>
-		<confluent.version>3.3.1</confluent.version>
+		<confluent.version>5.4.0</confluent.version>
 	</properties>
 	
-	
+	<!-- Adding repository for confluent dependencies -->
 	<repositories>
         <repository>
             <id>confluent</id>

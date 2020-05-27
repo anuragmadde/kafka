@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.hackathon.kafka;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;

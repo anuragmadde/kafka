@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package com.example.demo;
+package com.hackathon.kafka;
 
 import org.apache.avro.specific.SpecificData;
 import org.apache.avro.message.BinaryMessageEncoder;
@@ -141,8 +141,8 @@ public class TestSchema extends org.apache.avro.specific.SpecificRecordBase impl
    * Creates a new SampleSchema RecordBuilder.
    * @return A new SampleSchema RecordBuilder
    */
-  public static com.example.demo.TestSchema.Builder newBuilder() {
-    return new com.example.demo.TestSchema.Builder();
+  public static com.hackathon.kafka.TestSchema.Builder newBuilder() {
+    return new com.hackathon.kafka.TestSchema.Builder();
   }
 
   /**
@@ -150,8 +150,8 @@ public class TestSchema extends org.apache.avro.specific.SpecificRecordBase impl
    * @param other The existing builder to copy.
    * @return A new SampleSchema RecordBuilder
    */
-  public static com.example.demo.TestSchema.Builder newBuilder(com.example.demo.TestSchema.Builder other) {
-    return new com.example.demo.TestSchema.Builder(other);
+  public static com.hackathon.kafka.TestSchema.Builder newBuilder(com.hackathon.kafka.TestSchema.Builder other) {
+    return new com.hackathon.kafka.TestSchema.Builder(other);
   }
 
   /**
@@ -159,8 +159,8 @@ public class TestSchema extends org.apache.avro.specific.SpecificRecordBase impl
    * @param other The existing instance to copy.
    * @return A new SampleSchema RecordBuilder
    */
-  public static com.example.demo.TestSchema.Builder newBuilder(com.example.demo.TestSchema other) {
-    return new com.example.demo.TestSchema.Builder(other);
+  public static com.hackathon.kafka.TestSchema.Builder newBuilder(com.hackathon.kafka.TestSchema other) {
+    return new com.hackathon.kafka.TestSchema.Builder(other);
   }
 
   /**
@@ -183,7 +183,7 @@ public class TestSchema extends org.apache.avro.specific.SpecificRecordBase impl
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.example.demo.TestSchema.Builder other) {
+    private Builder(com.hackathon.kafka.TestSchema.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
@@ -207,7 +207,7 @@ public class TestSchema extends org.apache.avro.specific.SpecificRecordBase impl
      * Creates a Builder by copying an existing SampleSchema instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.example.demo.TestSchema other) {
+    private Builder(com.hackathon.kafka.TestSchema other) {
             super(SCHEMA$);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
@@ -240,7 +240,7 @@ public class TestSchema extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'id'.
       * @return This builder.
       */
-    public com.example.demo.TestSchema.Builder setId(int value) {
+    public com.hackathon.kafka.TestSchema.Builder setId(int value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
@@ -260,7 +260,7 @@ public class TestSchema extends org.apache.avro.specific.SpecificRecordBase impl
       * Clears the value of the 'id' field.
       * @return This builder.
       */
-    public com.example.demo.TestSchema.Builder clearId() {
+    public com.hackathon.kafka.TestSchema.Builder clearId() {
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -278,7 +278,7 @@ public class TestSchema extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'name'.
       * @return This builder.
       */
-    public com.example.demo.TestSchema.Builder setName(java.lang.String value) {
+    public com.hackathon.kafka.TestSchema.Builder setName(java.lang.String value) {
       validate(fields()[1], value);
       this.name = value;
       fieldSetFlags()[1] = true;
@@ -298,7 +298,7 @@ public class TestSchema extends org.apache.avro.specific.SpecificRecordBase impl
       * Clears the value of the 'name' field.
       * @return This builder.
       */
-    public com.example.demo.TestSchema.Builder clearName() {
+    public com.hackathon.kafka.TestSchema.Builder clearName() {
       name = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -317,7 +317,7 @@ public class TestSchema extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'email'.
       * @return This builder.
       */
-    public com.example.demo.TestSchema.Builder setEmail(java.lang.String value) {
+    public com.hackathon.kafka.TestSchema.Builder setEmail(java.lang.String value) {
       validate(fields()[2], value);
       this.email = value;
       fieldSetFlags()[2] = true;
@@ -337,7 +337,7 @@ public class TestSchema extends org.apache.avro.specific.SpecificRecordBase impl
       * Clears the value of the 'email' field.
       * @return This builder.
       */
-    public com.example.demo.TestSchema.Builder clearEmail() {
+    public com.hackathon.kafka.TestSchema.Builder clearEmail() {
       email = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -356,7 +356,7 @@ public class TestSchema extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'postcode'.
       * @return This builder.
       */
-    public com.example.demo.TestSchema.Builder setPostcode(int value) {
+    public com.hackathon.kafka.TestSchema.Builder setPostcode(int value) {
       validate(fields()[3], value);
       this.postcode = value;
       fieldSetFlags()[3] = true;
@@ -376,7 +376,7 @@ public class TestSchema extends org.apache.avro.specific.SpecificRecordBase impl
       * Clears the value of the 'postcode' field.
       * @return This builder.
       */
-    public com.example.demo.TestSchema.Builder clearPostcode() {
+    public com.hackathon.kafka.TestSchema.Builder clearPostcode() {
       fieldSetFlags()[3] = false;
       return this;
     }

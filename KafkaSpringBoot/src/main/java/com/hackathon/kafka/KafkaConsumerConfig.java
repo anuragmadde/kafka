@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.hackathon.kafka;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -40,6 +40,10 @@ public class KafkaConsumerConfig {
 
         return props;
     }
+    
+    /*
+     * Creates a Kafka Consumer Factory with the consumer config properties
+     */
 
     @Bean
     public ConsumerFactory<String, String> consumerFactory() {

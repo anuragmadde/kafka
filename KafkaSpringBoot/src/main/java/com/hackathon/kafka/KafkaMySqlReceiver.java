@@ -1,11 +1,9 @@
-package com.example.demo;
+package com.hackathon.kafka;
 
 import java.sql.Timestamp;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.OffsetDateTime;
-import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -16,13 +14,12 @@ import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 
-import postgres.cdc.intrusion_details.Key;
-import postgres.cdc.intrusion_details.Value;
-
+import mysql.cdc.intrusion_details.Key;
+import mysql.cdc.intrusion_details.Value;
 
 @Service
-public class KafkaPostgresReceiver {
-	
+public class KafkaMySqlReceiver {
+
 	@Autowired
 	public KafkaSender kafkaSender;
 	
@@ -35,12 +32,18 @@ public class KafkaPostgresReceiver {
 	@Autowired
 	public Address address;
 	
-
-	@KafkaListener(topics = "${postgres_topic}")
-    public void listenPostgresTopic(@Payload ConsumerRecord<Key,Value> message) throws InterruptedException, ExecutionException, ParseException  {
-       
-        System.out.println("POSTGRES key - "+ message.key());
-        System.out.println("POSTGRES Value - "+ message.value());
+	/*
+	 * Listener Class for Mysql Topic.
+	 *
+	 */
+		
+	@KafkaListener(topics = "${mysql_topic}")
+    public void listenMySqlTopic(@Payload ConsumerRecord<Key,Value> message) throws InterruptedException, ExecutionException, ParseException  {
+        
+        System.out.println("MYSQL key - "+ message.key());
+        System.out.println("MYSQL value - "+ message.value());
+        
+        //Map the message data to intrusion data
  
         intrusionData.setUuid(message.key().getReferenceId());
         intrusionData.setProvider(message.value().getProvider());
@@ -63,22 +66,26 @@ public class KafkaPostgresReceiver {
         location.setLongitude(message.value().getLocationLongitude());
         
         intrusionData.setLatitude(location);
-
+      
         OffsetDateTime odt = OffsetDateTime.parse(message.value().getAlertTime());
         Instant instant = odt.toInstant();
         Timestamp timestamp = Timestamp.from(instant);
-        
+ 
         intrusionData.setAlerted(timestamp);
+        
+        //convert to json and send to mongodb topic
         
         Gson gson = new Gson();
         String intrusionJson = gson.toJson(intrusionData);
         
-        System.out.println("Intrusion Data - "+ intrusionJson);
-              
+        System.out.println("Intrusion Data - "+ intrusionJson);     
+        
         kafkaSender.send("mongoIntrusionTopic", message.key().toString() ,intrusionJson);
         
-        System.out.println("Data sent to mongoIntrusionTopic from Postgres Source");
+        System.out.println("Data sent to mongoIntrusionTopic from MySql Source");
         
     }
-		
+	
+
+	
 }

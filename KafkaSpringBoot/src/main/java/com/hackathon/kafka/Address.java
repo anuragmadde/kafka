@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.hackathon.kafka;
 
 import org.springframework.stereotype.Component;
 
